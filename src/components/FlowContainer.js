@@ -34,7 +34,6 @@ const nodeTypes = {
 
 function FlowContainer() {
     const [initialElements, setInitialElements] = useState();
-    const [noOfLayers, setNoOfLayers] = useState();
 
     useEffect(() => {
         const noOfLayersBasedFromDB = [
@@ -43,7 +42,6 @@ function FlowContainer() {
             { id: 3, noOfNodes: 3 },
             { id: 4, noOfNodes: 3 }
         ];
-        setNoOfLayers(noOfLayersBasedFromDB);
         setInitialElements([
             {
                 id: 'vmName1',
@@ -269,7 +267,7 @@ function FlowContainer() {
     }
 
     function getYNodePosition(layers, layer) {
-        const containerSize = document.querySelector('.flow-chart').offsetHeight - 10;
+        const containerSize = document.querySelector('.flow-chart').offsetHeight - 70;
         const sizeOfNode = 50;
         const noOfEmptySpace = layers - 1;
         const totalEmptySpaceSize = containerSize - (sizeOfNode * layers);
@@ -285,34 +283,33 @@ function FlowContainer() {
         return position;
     };
 
-    function computeMarginTop(layers, index) {
-        if (index === 0) {
-            return '0px';
-        } else {
-            const containerSize = document.querySelector('.flow-chart').offsetHeight - 10;
-            const sizeOfNode = 50;
-            const noOfEmptySpace = layers.length - 1;
-            const totalEmptySpaceSize = containerSize - (sizeOfNode * layers.length);
-            const emptySpaceSize = totalEmptySpaceSize / noOfEmptySpace;
-
-            return emptySpaceSize.toString() + 'px';
-        }
-    }
-
     function onLoad(reactFlowInstance) {
         reactFlowInstance.fitView()
     };
 
     return (
         <div className="flow-container">
-            <div className="flow-title">
-                {
-                    noOfLayers && noOfLayers.map((layer, index) => (
-                        <div className="flow-border" style={{ height: '50px', marginLeft: '20px', marginTop: computeMarginTop(noOfLayers, index) }}>
-                            <p style={{ borderBottom: '1px solid black' }}><strong>Recovery Order {index + 1} ({layer.noOfNodes})</strong></p>
-                        </div>
-                    ))
-                }
+            <div className="flow-border-container">
+                <div className="flow-border-holder" style={{ height: '100px' }}>
+                    <div className="flow-border-content">
+                        <p>Recovery Order1 (1)</p>
+                    </div>
+                </div>
+                <div className="flow-border-holder" style={{ height: '100px', marginTop: '90px' }}>
+                    <div className="flow-border-content">
+                        <p>Recovery Order2 (2)</p>
+                    </div>
+                </div>
+                <div className="flow-border-holder" style={{ height: '100px', marginTop: '90px' }}>
+                    <div className="flow-border-content">
+                        <p>Recovery Order3 (3)</p>
+                    </div>
+                </div>
+                <div className="flow-border-holder" style={{ height: '100px', marginTop: '90px' }}>
+                    <div className="flow-border-content">
+                        <p>Recovery Order4 (4)</p>
+                    </div>
+                </div>
             </div>
             <div className="flow-chart">
                 <ReactFlow

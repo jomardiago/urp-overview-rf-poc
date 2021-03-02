@@ -1,17 +1,35 @@
 .flow-container {
-    display: flex;
     width: 1200px;
     height: 700px;
     margin: 20px auto;
     padding-top: 10px;
     background-color: #ffffff;
     border-radius: 5px;
+    position: relative;
 }
 
-.flow-title {
-    width: 30%;
+.flow-border-container {
+    width: 100%;
+    height: 100%;            
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;  /* for demo purpose  */
+    margin-top: 20px;
 }
 
 .flow-chart {
+    height: inherit;
     width: 70%;
+    z-index: 9;
+    float: right;
+    margin-top: 20px;
+}
+
+.flow-border-content {
+    border: 1px solid #D3D3D3;
+    height: inherit;
+    width: 98%;
+    margin: auto;
+    border-radius: 5px;
 }
