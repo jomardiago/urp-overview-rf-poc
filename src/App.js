@@ -1,9 +1,10 @@
+import FlowContainer from './components/FlowContainer';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      URP Overview React Flow POC
+      <FlowContainer />
     </div>
   );
 }

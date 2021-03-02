@@ -1,0 +1,17 @@
+.flow-container {
+    display: flex;
+    width: 1200px;
+    height: 700px;
+    margin: 20px auto;
+    padding-top: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.flow-title {
+    width: 30%;
+}
+
+.flow-chart {
+    width: 70%;
+}
