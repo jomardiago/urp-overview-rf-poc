@@ -10,18 +10,16 @@ const nodeTypes = {
 
 function FlowContainer() {
     const [initialElements, setInitialElements] = useState();
-    const [noOfLayers, setNoOfLayers] = useState();
+    const [noOfLayers, setNoOfLayers] = useState([
+        { id: 1, name: 'Application', icon: 'application', noOfNodes: 1 },
+        { id: 2, name: 'Web', icon: 'web', noOfNodes: 2 },
+        { id: 3, name: 'Database', icon: 'archive', noOfNodes: 3 },
+        { id: 4, name: 'Archive', icon: 'archive', noOfNodes: 3 }
+    ]);
 
     useEffect(() => {
-        const noOfLayersBasedFromDB = [
-            { id: 1, name: 'Application', icon: 'application', noOfNodes: 1 },
-            { id: 2, name: 'Web', icon: 'web', noOfNodes: 2 },
-            { id: 3, name: 'Database', icon: 'archive', noOfNodes: 3 },
-            { id: 4, name: 'Other', icon: 'archive', noOfNodes: 3 }
-        ];
-        setNoOfLayers(noOfLayersBasedFromDB);
-        setInitialElements(getInitialElements(noOfLayersBasedFromDB));
-    }, []);
+        setInitialElements(getInitialElements(noOfLayers));
+    }, [noOfLayers]);
 
     function getIcon(icon) {
         switch (icon) {
@@ -36,9 +34,18 @@ function FlowContainer() {
         }
     }
 
+    function getFlowChartHeight() {
+        const sizeOfBox = 100;
+        const sizeOfEmptySpace = 90;
+        const paddingTopBottom = 30;
+        const totalSizeOfBoxes = noOfLayers.length * sizeOfBox;
+        const totalSizeOfEmptySpaces = (noOfLayers.length - 1) * sizeOfEmptySpace;
+        return paddingTopBottom + totalSizeOfBoxes + totalSizeOfEmptySpaces;
+    }
+
     function onLoad(reactFlowInstance) {
         reactFlowInstance.fitView()
-    };
+    }
 
     return (
         <div className="flow-container">
@@ -53,7 +60,7 @@ function FlowContainer() {
                     ))
                 }
             </div>
-            <div className="flow-chart">
+            <div className="flow-chart" style={{ height: getFlowChartHeight() + 'px' }}>
                 <ReactFlow
                     elements={initialElements}
                     nodeTypes={nodeTypes}

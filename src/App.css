@@ -6,6 +6,7 @@
     background-color: #ffffff;
     border-radius: 5px;
     position: relative;
+    overflow: auto;
 }
 
 .flow-border-container {
@@ -18,7 +19,6 @@
 }
 
 .flow-chart {
-    height: inherit;
     width: 70%;
     z-index: 9;
     float: right;
