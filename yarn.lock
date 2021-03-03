@@ -1315,6 +1315,19 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@carbon/icon-helpers@^10.14.0":
+  version "10.14.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.14.0.tgz#8c24ff6519d5210bb609c07cf5badb4c3125f5e8"
+  integrity sha512-dTU/+YYojsqwqGdh+QPMqj28C4gj2dP/ImlWoZsk8syiKqEZ7DeHksGIGz6EweQ8UhGEJFP1rFV7WwQ/ybXrFw==
+
+"@carbon/icons-react@^10.26.0":
+  version "10.26.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.26.0.tgz#c601b3bec62c36c38cc8fc107ace140eee08d801"
+  integrity sha512-5+7r/CkwofKBXkUupA1NFvUCqQsdvG2L2UUdHXvjx9TDRa26kzjhyzCoBmAot4csOLzpQHbel5Daas3jtNjDOQ==
+  dependencies:
+    "@carbon/icon-helpers" "^10.14.0"
+    prop-types "^15.7.2"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"

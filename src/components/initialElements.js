@@ -69,7 +69,7 @@ export function getInitialElements(noOfLayersBasedFromDB) {
             className: 'dark-node',
             data: {
                 label: 'VM Name 1',
-                subLabel: 'Start Sequence 1',
+                subLabel: 'Start Sequence 4',
                 handleBottom: { id: 'vmName1Bottom', type: 'source' }
             },
             style: {...nodeStyle.success, ...nodeStyle.default},
@@ -82,9 +82,10 @@ export function getInitialElements(noOfLayersBasedFromDB) {
             className: 'dark-node',
             data: {
                 label: 'VM Name 2',
-                subLabel: 'Start Sequence 2',
+                subLabel: 'Start Sequence 3',
                 handleTop: { id: 'vmName2Top', type: 'target' },
-                handleBottom: { id: 'vmName2Bottom', type: 'source' }
+                handleBottom: { id: 'vmName2Bottom', type: 'source' },
+                type: 'failed'
             },
             style: {...nodeStyle.failed, ...nodeStyle.default},
             position: { x: getXNodePosition(2, 1), y: getYNodePosition(noOfLayersBasedFromDB.length, 2) },
@@ -110,9 +111,10 @@ export function getInitialElements(noOfLayersBasedFromDB) {
             className: 'dark-node',
             data: {
                 label: 'VM Name 4',
-                subLabel: 'Start Sequence 4',
+                subLabel: 'Start Sequence 2',
                 handleTop: { id: 'vmName4Top', type: 'target' },
-                handleBottom: { id: 'vmName4Bottom', type: 'source' }
+                handleBottom: { id: 'vmName4Bottom', type: 'source' },
+                type: 'failed'
             },
             style: {...nodeStyle.failed, ...nodeStyle.default},
             position: { x: getXNodePosition(3, 1), y: getYNodePosition(noOfLayersBasedFromDB.length, 3) },
@@ -124,7 +126,7 @@ export function getInitialElements(noOfLayersBasedFromDB) {
             className: 'dark-node',
             data: {
                 label: 'VM Name 5',
-                subLabel: 'Start Sequence 5',
+                subLabel: 'Start Sequence 2',
                 handleTop: { id: 'vmName5Top', type: 'target' },
                 handleBottom: { id: 'vmName5Bottom', type: 'source' }
             },
@@ -138,7 +140,7 @@ export function getInitialElements(noOfLayersBasedFromDB) {
             className: 'dark-node',
             data: {
                 label: 'VM Name 6',
-                subLabel: 'Start Sequence 6',
+                subLabel: 'Start Sequence 2',
                 handleTop: { id: 'vmName6Top', type: 'target' },
                 handleBottom: { id: 'vmName6Bottom', type: 'source' }
             },
@@ -152,8 +154,9 @@ export function getInitialElements(noOfLayersBasedFromDB) {
             className: 'dark-node',
             data: {
                 label: 'VM Name 7',
-                subLabel: 'Start Sequence 7',
-                handleTop: { id: 'vmName7Top', type: 'target' }
+                subLabel: 'Start Sequence 1',
+                handleTop: { id: 'vmName7Top', type: 'target' },
+                type: 'paused'
             },
             style: {...nodeStyle.warning, ...nodeStyle.default},
             position: { x: getXNodePosition(3, 1), y: getYNodePosition(noOfLayersBasedFromDB.length, 4) },
@@ -165,7 +168,7 @@ export function getInitialElements(noOfLayersBasedFromDB) {
             className: 'dark-node',
             data: {
                 label: 'VM Name 8',
-                subLabel: 'Start Sequence 8',
+                subLabel: 'Start Sequence 1',
                 handleTop: { id: 'vmName8Top', type: 'target' }
             },
             style: {...nodeStyle.success, ...nodeStyle.default},
@@ -178,7 +181,7 @@ export function getInitialElements(noOfLayersBasedFromDB) {
             className: 'dark-node',
             data: {
                 label: 'VM Name 9',
-                subLabel: 'Start Sequence 9',
+                subLabel: 'Start Sequence 1',
                 handleTop: { id: 'vmName9Top', type: 'target' }
             },
             style: {...nodeStyle.success, ...nodeStyle.default},

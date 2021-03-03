@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactFlow from "react-flow-renderer";
 import Node from './Node';
 import { getInitialElements } from './initialElements';
+import { Application16, Archive16, WordCloud16 } from '@carbon/icons-react';
 
 const nodeTypes = {
     customNode: Node
@@ -13,14 +14,27 @@ function FlowContainer() {
 
     useEffect(() => {
         const noOfLayersBasedFromDB = [
-            { id: 1, noOfNodes: 1 },
-            { id: 2, noOfNodes: 2 },
-            { id: 3, noOfNodes: 3 },
-            { id: 4, noOfNodes: 3 }
+            { id: 1, name: 'Application', icon: 'application', noOfNodes: 1 },
+            { id: 2, name: 'Web', icon: 'web', noOfNodes: 2 },
+            { id: 3, name: 'Database', icon: 'archive', noOfNodes: 3 },
+            { id: 4, name: 'Other', icon: 'archive', noOfNodes: 3 }
         ];
         setNoOfLayers(noOfLayersBasedFromDB);
         setInitialElements(getInitialElements(noOfLayersBasedFromDB));
     }, []);
+
+    function getIcon(icon) {
+        switch (icon) {
+            case 'application':
+                return (<Application16 />);
+            case 'archive':
+                return (<Archive16 />);
+            case 'web':
+                return (<WordCloud16 />);
+            default:
+                break;
+        }
+    }
 
     function onLoad(reactFlowInstance) {
         reactFlowInstance.fitView()
@@ -33,7 +47,7 @@ function FlowContainer() {
                     noOfLayers && noOfLayers.map((layer, index) => (
                         <div key={index} className="flow-border-holder" style={{ height: '100px', marginTop: index > 0 ? '90px' : '' }}>
                             <div className="flow-border-content">
-                                <p>Recovery Order{index + 1} ({ layer.noOfNodes })</p>
+                                <p>{getIcon(layer.icon)} {layer.name} ({ layer.noOfNodes })</p>
                             </div>
                         </div>
                     ))
