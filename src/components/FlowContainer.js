@@ -34,6 +34,7 @@ const nodeTypes = {
 
 function FlowContainer() {
     const [initialElements, setInitialElements] = useState();
+    const [noOfLayers, setNoOfLayers] = useState();
 
     useEffect(() => {
         const noOfLayersBasedFromDB = [
@@ -42,6 +43,7 @@ function FlowContainer() {
             { id: 3, noOfNodes: 3 },
             { id: 4, noOfNodes: 3 }
         ];
+        setNoOfLayers(noOfLayersBasedFromDB);
         setInitialElements([
             {
                 id: 'vmName1',
@@ -290,26 +292,15 @@ function FlowContainer() {
     return (
         <div className="flow-container">
             <div className="flow-border-container">
-                <div className="flow-border-holder" style={{ height: '100px' }}>
-                    <div className="flow-border-content">
-                        <p>Recovery Order1 (1)</p>
-                    </div>
-                </div>
-                <div className="flow-border-holder" style={{ height: '100px', marginTop: '90px' }}>
-                    <div className="flow-border-content">
-                        <p>Recovery Order2 (2)</p>
-                    </div>
-                </div>
-                <div className="flow-border-holder" style={{ height: '100px', marginTop: '90px' }}>
-                    <div className="flow-border-content">
-                        <p>Recovery Order3 (3)</p>
-                    </div>
-                </div>
-                <div className="flow-border-holder" style={{ height: '100px', marginTop: '90px' }}>
-                    <div className="flow-border-content">
-                        <p>Recovery Order4 (4)</p>
-                    </div>
-                </div>
+                {
+                    noOfLayers && noOfLayers.map((layer, index) => (
+                        <div className="flow-border-holder" style={{ height: '100px', marginTop: index > 0 ? '90px' : '' }}>
+                            <div className="flow-border-content">
+                                <p>Recovery Order{index + 1} ({ layer.noOfNodes })</p>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
             <div className="flow-chart">
                 <ReactFlow
