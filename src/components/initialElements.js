@@ -182,10 +182,24 @@ export function getInitialElements(noOfLayersBasedFromDB) {
             data: {
                 label: 'VM Name 9',
                 subLabel: 'Start Sequence 1',
-                handleTop: { id: 'vmName9Top', type: 'target' }
+                handleTop: { id: 'vmName9Top', type: 'target' },
+                handleBottom: { id: 'vmName9Bottom', type: 'source' }
             },
             style: {...nodeStyle.success, ...nodeStyle.default},
             position: { x: getXNodePosition(3, 3), y: getYNodePosition(noOfLayersBasedFromDB.length, 4) },
+            draggable: false
+        },
+        {
+            id: 'vmName10',
+            type: 'customNode',
+            className: 'dark-node',
+            data: {
+                label: 'VM Name 10',
+                subLabel: 'Start Sequence 7',
+                handleTop: { id: 'vmName10Top', type: 'target' }
+            },
+            style: {...nodeStyle.success, ...nodeStyle.default},
+            position: { x: getXNodePosition(1, 1), y: getYNodePosition(noOfLayersBasedFromDB.length, 5) },
             draggable: false
         },
         {
@@ -266,6 +280,14 @@ export function getInitialElements(noOfLayersBasedFromDB) {
             sourceHandle: "vmName6Bottom",
             type: "straight",
             target: "vmName8",
+            arrowHeadType: "arrowclosed"
+        },
+        {
+            id: "vmName9ToVmName10",
+            source: "vmName9",
+            sourceHandle: "vmName9Bottom",
+            type: "straight",
+            target: "vmName10",
             arrowHeadType: "arrowclosed"
         }
     ]; 

@@ -14,7 +14,8 @@ function FlowContainer() {
         { id: 1, name: 'Application', icon: 'application', noOfNodes: 1 },
         { id: 2, name: 'Web', icon: 'web', noOfNodes: 2 },
         { id: 3, name: 'Database', icon: 'archive', noOfNodes: 3 },
-        { id: 4, name: 'Archive', icon: 'archive', noOfNodes: 3 }
+        { id: 4, name: 'Archive', icon: 'archive', noOfNodes: 3 },
+        { id: 5, name: 'Other', icon: 'archive', noOfNodes: 1 },
     ]);
 
     useEffect(() => {
