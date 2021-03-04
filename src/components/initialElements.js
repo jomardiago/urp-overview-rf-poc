@@ -43,7 +43,7 @@ function getXNodePosition(noOfNodes, nodePosition) {
 }
 
 function getYNodePosition(layers, layer) {
-    const containerSize = document.querySelector('.flow-chart').offsetHeight - 70;
+    const containerSize = document.querySelector('.flow-chart').offsetHeight - 70; // 70 is the estimated padding bottom and top, adjust accordingly
     const sizeOfNode = 50;
     const noOfEmptySpace = layers - 1;
     const totalEmptySpaceSize = containerSize - (sizeOfNode * layers);
@@ -190,19 +190,6 @@ export function getInitialElements(noOfLayersBasedFromDB) {
             draggable: false
         },
         {
-            id: 'vmName10',
-            type: 'customNode',
-            className: 'dark-node',
-            data: {
-                label: 'VM Name 10',
-                subLabel: 'Start Sequence 7',
-                handleTop: { id: 'vmName10Top', type: 'target' }
-            },
-            style: {...nodeStyle.success, ...nodeStyle.default},
-            position: { x: getXNodePosition(1, 1), y: getYNodePosition(noOfLayersBasedFromDB.length, 5) },
-            draggable: false
-        },
-        {
             id: "vmName1ToVmName2",
             source: "vmName1",
             sourceHandle: "vmName1Bottom",
@@ -280,14 +267,6 @@ export function getInitialElements(noOfLayersBasedFromDB) {
             sourceHandle: "vmName6Bottom",
             type: "straight",
             target: "vmName8",
-            arrowHeadType: "arrowclosed"
-        },
-        {
-            id: "vmName9ToVmName10",
-            source: "vmName9",
-            sourceHandle: "vmName9Bottom",
-            type: "straight",
-            target: "vmName10",
             arrowHeadType: "arrowclosed"
         }
     ]; 

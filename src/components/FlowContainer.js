@@ -14,8 +14,7 @@ function FlowContainer() {
         { id: 1, name: 'Application', icon: 'application', noOfNodes: 1 },
         { id: 2, name: 'Web', icon: 'web', noOfNodes: 2 },
         { id: 3, name: 'Database', icon: 'archive', noOfNodes: 3 },
-        { id: 4, name: 'Archive', icon: 'archive', noOfNodes: 3 },
-        { id: 5, name: 'Other', icon: 'archive', noOfNodes: 1 },
+        { id: 4, name: 'Archive', icon: 'archive', noOfNodes: 3 }
     ]);
 
     useEffect(() => {
@@ -44,6 +43,15 @@ function FlowContainer() {
         return paddingTopBottom + totalSizeOfBoxes + totalSizeOfEmptySpaces;
     }
 
+    function getFlowChartWidth() {
+        const widthOfNode = 200;
+        const maximumNoOfNodes = Math.max(...noOfLayers.map(layer => (layer.noOfNodes)));
+        const totalWidthOfNodes = widthOfNode * maximumNoOfNodes;
+        const assumedSpaceBetween = 50;
+        const totalAssumedSpaceBetween = (maximumNoOfNodes + 1) * assumedSpaceBetween;
+        return totalWidthOfNodes + totalAssumedSpaceBetween;
+    }
+
     function onLoad(reactFlowInstance) {
         reactFlowInstance.fitView()
     }
@@ -61,20 +69,22 @@ function FlowContainer() {
                     ))
                 }
             </div>
-            <div className="flow-chart" style={{ height: getFlowChartHeight() + 'px' }}>
-                <ReactFlow
-                    elements={initialElements}
-                    nodeTypes={nodeTypes}
-                    onLoad={onLoad}
-                    selectNodesOnDrag={false}
-                    nodesDraggable={false}
-                    nodesConnectable={false}
-                    paneMoveable={false}
-                    zoomOnScroll={false}
-                    panOnScroll={false}
-                    zoomOnDoubleClick={false}
-                    elementsSelectable={false}
-                />
+            <div className="flow-chart-container">
+                <div className="flow-chart" style={{ height: getFlowChartHeight() + 'px', width: getFlowChartWidth() + 'px' }}>
+                    <ReactFlow
+                        elements={initialElements}
+                        nodeTypes={nodeTypes}
+                        onLoad={onLoad}
+                        selectNodesOnDrag={false}
+                        nodesDraggable={false}
+                        nodesConnectable={false}
+                        paneMoveable={false}
+                        zoomOnScroll={false}
+                        panOnScroll={false}
+                        zoomOnDoubleClick={false}
+                        elementsSelectable={false}
+                    />
+                </div>
             </div>
         </div>
     )
